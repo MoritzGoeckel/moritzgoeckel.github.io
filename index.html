@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <title>Moritz Goeckel</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,300,400italic,400,600italic,600,700italic,700,800italic,800" rel="stylesheet" type="text/css">
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="jquery.typeout.js"></script>
+	
+    <script>
+
+        initAjax();
+
+        function updateUnderline(what) {
+            var underline = document.getElementById("underline");
+            underline.className = "underline " + what+ "_underline";
+        }
+
+        currentSite = "ich";
+        function doNextSite()
+        {
+            if(currentSite == "ich")
+                doSite("skills");
+            else if(currentSite == "skills")
+                doSite("projekte");
+            else if(currentSite == "projekte")
+                doSite("kontakt");
+        }
+
+        function doPrevSite()
+        {
+            if(currentSite == "kontakt")
+                doSite("projekte");
+            else if(currentSite == "projekte")
+                doSite("skills");
+            else if(currentSite == "skills")
+                doSite("ich");
+        }
+
+        function doSite(site)
+        {
+            //Write #
+			
+			document.getElementById(currentSite + "_link").style.color = "#898989";
+			document.getElementById(site + "_link").style.color = "black";
+			
+            updateUnderline(site);
+            loadContent("content/" + site + ".html");
+            currentSite = site;
+        }
+
+        function initAjax() {
+            xmlHttpObject = false;
+
+            if (typeof XMLHttpRequest != 'undefined') {
+                xmlHttpObject = new XMLHttpRequest();
+            }
+            if (!xmlHttpObject) {
+                try {
+                    xmlHttpObject = new ActiveXObject("Msxml2.XMLHTTP");
+                }
+                catch (e) {
+                    try {
+                        xmlHttpObject = new ActiveXObject("Microsoft.XMLHTTP");
+                    }
+                    catch (e) {
+                        xmlHttpObject = null;
+                    }
+                }
+            }
+        }
+
+        function loadContent(file)
+        {
+            xmlHttpObject.open('get',file);
+            xmlHttpObject.onreadystatechange = handleContent;
+            xmlHttpObject.send(null);
+            return false;
+        }
+
+        function handleContent()
+        {
+            if (xmlHttpObject.readyState == 4)
+            {
+                document.getElementById('content').innerHTML = xmlHttpObject.responseText;
+            }
+        }		
+    </script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-61075210-1', 'auto');
+  ga('send', 'pageview');
+
+</script></head>
+<body>
+
+<div id="center">
+    <nav>
+        <a id="ich_link" href="index.html#ich" onclick="doSite('ich');">Ich</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="index.html#skills" id="skills_link" onclick="doSite('skills')">F&auml;higkeiten</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="index.html#projekte" id="projekte_link" onclick="doSite('projekte');">Projekte</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="index.html#kontakt" id="kontakt_link" onclick="doSite('kontakt');">Kontakt</a>
+        <div id="underline" class="underline ich"></div>
+
+        <script>
+            var hash = window.location.hash.substring(1);
+            if(hash == "")
+                hash = "ich";
+            doSite(hash);
+        </script>
+
+    </nav>
+
+    <div id="content">
+
+    </div>
+
+    <img id="player" src="content/player.png" width="50px" height="50px" style="position: relative; margin-left: 100px; margin-bottom: -8px; transform: rotate(0deg);" />
+    <span id="info" style="position: absolute; margin-left: 5px; margin-top: 1px; color: #898989;">Verwenden Sie die Pfeiltasten<br />um sich zu bewegen</span>
+    <hr style="border: none; background-color: #898989; height: 2px;"/>
+
+    <script src="game.js"></script>
+	<script>$('#info').typeOut({ marker : '', delay : 10, preserve : true });</script>
+
+</div>
+
+</body>
+</html>
