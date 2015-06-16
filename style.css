@@ -156,10 +156,9 @@ h1{
 }
 
 .tutorial_span{
-	position: absolute;
-	margin-left: 5px;
-	margin-top: 1px;
 	color: #898989;
+	display: inline-table;
+	vertical-align: top;
 }
 
 .player_img{
