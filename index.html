@@ -7,11 +7,12 @@
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,300,400italic,400,600italic,600,700italic,700,800italic,800" rel="stylesheet" type="text/css">
 	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script src="jquery.typeout.js"></script>
+	<script src="scroll-shadow.js"></script>
 	
     <script>
 
         initAjax();
-
+        
         function updateUnderline(what) {
             var underline = document.getElementById("underline");
             underline.className = "underline " + what+ "_underline";
@@ -84,6 +85,7 @@
             if (xmlHttpObject.readyState == 4)
             {
                 document.getElementById('content').innerHTML = xmlHttpObject.responseText;
+                scrollShadow.init("#content");
             }
         }		
     </script>
@@ -113,9 +115,9 @@
         </script>
 
     </nav>
-
+    
     <div id="content">
-
+        
     </div>
     
     <img id="player" src="content/player.png" class="player_img" style="margin-left: 100px; transform: rotate(0deg);" />

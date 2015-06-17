@@ -4,6 +4,36 @@ body
     letter-spacing: -0.03em;
 }
 
+::selection {
+  background: red; /* WebKit/Blink Browsers */
+  color: white;
+}
+
+::-moz-selection {
+  background: red; /* Gecko Browsers */
+  color: white;
+}
+
+.shadow-top {
+  height: 0px;
+  position: absolute;
+  background-image: radial-gradient(farthest-side at 50% 0%, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 100%);
+  display: none;
+}
+.shadow-bottom {
+  height: 50px;
+  position: absolute;
+  background-image: radial-gradient(farthest-side at 50% 100%, rgba(240, 240, 240, 0.9) 30%, rgba(240, 240, 240, 0) 100%);
+  display: none;
+}
+
+#content{
+    overflow: auto;
+    margin-top: 100px;
+    height: 500px;
+    margin-bottom: 50px;
+}
+
 #center
 {
     width: 1200px;
@@ -61,12 +91,6 @@ nav a:active
 .kontakt_underline {
     width: 113px;
     margin-left: 448px;
-}
-
-#content{
-    overflow: scroll;
-    margin-top: 100px;
-    height: 550px;
 }
 
 .bigFont{
