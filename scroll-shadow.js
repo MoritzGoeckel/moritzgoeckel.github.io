@@ -32,7 +32,7 @@ var scrollShadow = (function() {
   
   function addScrollListener() {
     elem.off("scroll.shadow");
-		elem.on("scroll.shadow", function () {
+	elem.on("scroll.shadow", function () {
 			if (elem.scrollTop() > 0) {
 				shadowTop.fadeIn(125);
 			} else {
@@ -64,6 +64,16 @@ var scrollShadow = (function() {
       addScrollListener();
       addResizeListener();
       elem.trigger("scroll.shadow");
+    },
+    deinit: function() {
+      elem.off("scroll.shadow");
+      shadowBottom.remove();
+      shadowTop.remove();
+      
+      clearTimeout(timeout);
+      shadowTop = null;
+      shadowBottom = null;
+      elem = null;
     },
     update: calcPosition
   };

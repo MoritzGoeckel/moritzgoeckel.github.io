@@ -85,7 +85,11 @@
             if (xmlHttpObject.readyState == 4)
             {
                 document.getElementById('content').innerHTML = xmlHttpObject.responseText;
-                scrollShadow.init("#content");
+                
+                if(currentSite == "projekte")
+                    scrollShadow.init("#content");
+                else
+                    scrollShadow.deinit();
             }
         }		
     </script>

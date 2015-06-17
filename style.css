@@ -15,11 +15,12 @@ body
 }
 
 .shadow-top {
-  height: 0px;
+  /*height: 50px;
   position: absolute;
   background-image: radial-gradient(farthest-side at 50% 0%, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 100%);
-  display: none;
+  display: none;*/
 }
+
 .shadow-bottom {
   height: 50px;
   position: absolute;
