@@ -15,7 +15,7 @@ var scrollShadow = (function() {
   function calcPosition() {
     width = elem.outerWidth();
     height = elem.outerHeight();
-    offset = elem.position();  
+    offset = elem.position();
 
     // update 
     shadowTop.css({
@@ -25,7 +25,7 @@ var scrollShadow = (function() {
     });
     shadowBottom.css({
       width: width + "px",
-      top: (offset.top + height - 50 + 100) + "px", //100 Ist hardcoded! todo: allgemein //50 ist die schatten groeße aus dem css
+      top: (offset.top + height - shadowBottom.height() + parseInt(elem.css("margin-top").slice(0, -2))) + "px", //100 Ist hardcoded! todo: allgemein
       left: offset.left + "px"
     });
   }
