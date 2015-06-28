@@ -93,8 +93,9 @@ nav a:active
 }
 
 .bigFont{
-    font-size: 1.3em;
+    font-size: 1.2em;
     color: #898989;
+	line-height: 29px;
 }
 
 .bigFont a:link,
