@@ -1,6 +1,7 @@
 #My portfolio website
 To see it in action visit http://moritzgoeckel.com
 
+#Demo
 ![Portfolio website js visualization](https://raw.githubusercontent.com/MoritzGoeckel/JS-PortfolioSite/master/portfolio_visualization.gif)
 
 #Features
