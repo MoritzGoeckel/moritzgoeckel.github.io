@@ -1,11 +1,3 @@
-<script>
-function getAge() { // birthday is a date
-    var age = Date.now() - new Date(1993, 7 - 1, 17, 0, 0, 0, 0).getTime();
-    age = new Date(age);
-    return Math.abs(age.getUTCFullYear() - 1970);
-}
-</script>
-
 <p class="bigFont" style="float: left; margin-top: 15%; width: 670px;">Hi, ich bin <span style="color: black;">Moritz Göckel</span>, <script>document.write(getAge())</script> Jahre alt und Student der Medieninformatik.<br />
     Mein Schwerpunkt ist die Software-Entwicklung.</p>
 

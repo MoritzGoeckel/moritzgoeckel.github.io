@@ -91,7 +91,13 @@
                 else
                     scrollShadow.deinit();
             }
-        }		
+        }
+
+		function getAge() { // birthday is a date
+			var age = Date.now() - new Date(1993, 7 - 1, 17, 0, 0, 0, 0).getTime();
+			age = new Date(age);
+			return Math.abs(age.getUTCFullYear() - 1970);
+		}		
     </script>
 
 <script>
