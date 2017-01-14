@@ -90,8 +90,9 @@
                     scrollShadow.init("#content");
                 else
                     scrollShadow.deinit();
-					
-				document.getElementById('age').innerHTML = getAge();
+				
+				console.log("End handleContent");
+				setTimeout(function(){ document.getElementById('age').innerHTML = getAge(); console.log("End set age");}, 100);
             }
         }
 
