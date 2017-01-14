@@ -48,7 +48,7 @@ body
 
 nav{
     font-size: 2em;
-    color: #898989;
+    color: #737373;
 }
 
 nav a:link,
@@ -56,7 +56,7 @@ nav a:visited,
 nav a:active
 {
     text-decoration: none;
-    color: #898989;
+    color: #737373;
     transition: all 0.3s ease-in-out;
 }
 
@@ -94,9 +94,11 @@ nav a:active
 
 .bigFont{
     font-size: 1.2em;
-    color: #898989;
 	line-height: 29px;
+	color: #737373;
 }
+
+//898989
 
 .bigFont a:link,
 .bigFont a:active,
@@ -114,7 +116,7 @@ nav a:active
 
 .smallFont{
     font-size: 1em;
-    color: #898989;
+    color: #737373;
 }
 
 .smallFont a:link,
@@ -144,7 +146,7 @@ h1{
     padding: 8px;
     width: 80%;
     height: 120px;
-    color: #898989;
+    color: #737373;
 }
 
 .skills_td
@@ -174,13 +176,13 @@ h1{
 .bottom_line
 {
 	border: none;
-	background-color: #898989;
+	background-color: #737373;
 	height: 2px;
 	margin-top:3px;
 }
 
 .tutorial_span{
-	color: #898989;
+	color: #737373;
 	display: inline-table;
 	vertical-align: top;
 }
