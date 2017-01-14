@@ -86,13 +86,13 @@
             {
                 document.getElementById('content').innerHTML = xmlHttpObject.responseText;
                 
+				console.log("End handleContent");
+				document.getElementById('age').innerHTML = getAge();
+				
                 if(currentSite == "projekte")
                     scrollShadow.init("#content");
                 else
-                    scrollShadow.deinit();
-				
-				console.log("End handleContent");
-				setTimeout(function(){ document.getElementById('age').innerHTML = getAge(); console.log("End set age");}, 100);
+                    scrollShadow.deinit(); //Error todo
             }
         }
 
