@@ -111,12 +111,14 @@ nav a:active
 
 .bigFont a:hover
 {
-	color: black;
+	color: white;
+	background-color: red;
 }
 
 .smallFont{
     font-size: 1em;
     color: #737373;
+	text-decoration: none;
 }
 
 .smallFont a:link,
@@ -125,12 +127,13 @@ nav a:active
 {
 	transition: all 0.2s ease;
     color: red;
-	text-decoration: none;
 }
 
 .smallFont a:hover
 {
-	color: black;
+	color: white;
+	background-color: red;
+    text-decoration: none;
 }
 
 h1{
