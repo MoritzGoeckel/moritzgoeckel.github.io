@@ -6,11 +6,38 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,300,400italic,400,600italic,600,700italic,700,800italic,800" rel="stylesheet" type="text/css">
 	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	
+	<script src="http://www.localeplanet.com/api/auto/icu.js"></script>
+	<script src="http://www.localeplanet.com/api/translate.js"></script>
+	
 	<script src="jquery.typeout.js"></script>
 	<script src="scroll-shadow.js"></script>
 	
     <script>
-
+	
+		let language = navigator.language || navigator.userLanguage;
+		console.log("Lanugage is: " + language)
+		
+		if(language.startsWith("de") == false){
+			console.log("Switching to english");
+			
+			_.setTranslation({
+				"Hi, ich bin ":"Hi! My name is ",
+				", ":", I am ",
+				" Jahre alt und studiere Medieninformatik.":" years old and study computer science.",
+				"Mein Schwerpunkt ist die ":"My passion is ",
+				"Software-Entwicklung":"software developement",
+				"Hochsprachen":"High languages",
+				"Scriptsprachen":"Scripting languages",
+				"Markupsprachen":"Markup languages",
+				"Datenbanken":"Databases",
+				"Frameworks":"Frameworks",
+				"Entwickler-Tools":"Tools",
+				"Sonstiges":"Misc",
+				"Software":"Software"
+			});
+		}
+	
         initAjax();
         
         function updateUnderline(what) {
@@ -79,14 +106,24 @@
             xmlHttpObject.send(null);
             return false;
         }
-
+		
         function handleContent()
         {
             if (xmlHttpObject.readyState == 4)
             {
-                document.getElementById('content').innerHTML = xmlHttpObject.responseText;
+				let contentElement = document.getElementById('content');
+				contentElement.innerHTML = xmlHttpObject.responseText;
+				
+				var scripts = contentElement.getElementsByTagName("script");
+				for (let i = 0; scripts.length > 0;) {
+						let translatedText = eval(scripts[i].innerHTML);
+						
+						var translatedSpan = document.createElement("span");
+						translatedSpan.innerHTML = translatedText;
+						
+						scripts[i].parentNode.replaceChild(translatedSpan, scripts[i]);
+				}
                 
-				console.log("End handleContent");
 				document.getElementById('age').innerHTML = getAge();
 				
                 if(currentSite == "projekte")
