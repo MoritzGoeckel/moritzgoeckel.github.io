@@ -16,9 +16,17 @@
     <script>
 	
 		let language = navigator.language || navigator.userLanguage;
+		
+		//language = "de";
+		
+		if(language.startsWith("de"))
+			language = "de";
+		else
+			language = "en";
+		
 		console.log("Lanugage is: " + language)
 		
-		if(language.startsWith("de") == false){
+		if(language == "en"){
 			console.log("Switching to english");
 			
 			_.setTranslation({
@@ -34,7 +42,13 @@
 				"Frameworks":"Frameworks",
 				"Entwickler-Tools":"Tools",
 				"Sonstiges":"Misc",
-				"Software":"Software"
+				"Software":"Software",
+				"F&auml;higkeiten":"Skills",
+				"Ich":"Me",
+				"Projekte":"Projects",
+				"Kontakt":"Contact",
+				"Verwenden Sie die Pfeiltasten":"Use the arrow keys",
+				"um sich zu bewegen":"to move"
 			});
 		}
 	
@@ -42,7 +56,7 @@
         
         function updateUnderline(what) {
             var underline = document.getElementById("underline");
-            underline.className = "underline " + what+ "_underline";
+            underline.className = "underline " + what+ "_underline_" + language;
         }
 
         currentSite = "ich";
@@ -138,6 +152,10 @@
 			age = new Date(age);
 			return Math.abs(age.getUTCFullYear() - 1970);
 		}		
+		
+		function translatePrint(str){
+			document.write(_(str))
+		}
     </script>
 
 <script>
@@ -154,7 +172,7 @@
 
 <div id="center">
     <nav>
-        <a id="ich_link" href="index.html#ich" onclick="doSite('ich');">Ich</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="index.html#skills" id="skills_link" onclick="doSite('skills')">F&auml;higkeiten</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="index.html#projekte" id="projekte_link" onclick="doSite('projekte');">Projekte</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="index.html#kontakt" id="kontakt_link" onclick="doSite('kontakt');">Kontakt</a>
+        <a id="ich_link" href="index.html#ich" onclick="doSite('ich');"><script>translatePrint("Ich")</script></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="index.html#skills" id="skills_link" onclick="doSite('skills')"><script>translatePrint("F&auml;higkeiten")</script></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="index.html#projekte" id="projekte_link" onclick="doSite('projekte');"><script>translatePrint("Projekte")</script></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="index.html#kontakt" id="kontakt_link" onclick="doSite('kontakt');"><script>translatePrint("Kontakt")</script></a>
         <div id="underline" class="underline ich"></div>
 
         <script>
@@ -171,11 +189,15 @@
     </div>
     
     <img id="player" src="content/player.png" class="player_img" style="margin-left: 100px; transform: rotate(0deg);" />
-    <span id="info" class="tutorial_span">Verwenden Sie die Pfeiltasten<br />um sich zu bewegen</span>
+   	
+	<span id="info" class="tutorial_span"></span>
     <hr class="bottom_line"/>
 
     <script src="game.js"></script>
-	<script>$('#info').typeOut({ marker : '', delay : 10, preserve : true });</script>
+	<script>
+		$('#info').html(_("Verwenden Sie die Pfeiltasten") + "<br />" + _("um sich zu bewegen"));
+		$('#info').typeOut({ marker : '', delay : 10, preserve : true });
+	</script>
 
 </div>
 

@@ -72,24 +72,44 @@ nav a:active
     transition: all 0.5s ease-in-out;
 }
 
-.ich_underline {
+.ich_underline_de {
     width: 43px;
     margin-left: 0px;
 }
 
-.skills_underline {
+.skills_underline_de {
     width: 166px;
     margin-left: 83px;
 }
 
-.projekte_underline {
+.projekte_underline_de {
     width: 120px;
     margin-left: 288px;
 }
 
-.kontakt_underline {
+.kontakt_underline_de {
     width: 113px;
     margin-left: 448px;
+}
+
+.ich_underline_en {
+    width: 43px;
+    margin-left: 0px;
+}
+
+.skills_underline_en {
+    width: 75px;
+    margin-left: 83px;
+}
+
+.projekte_underline_en {
+    width: 116px;
+    margin-left: 195px;
+}
+
+.kontakt_underline_en {
+    width: 113px;
+    margin-left: 351px;
 }
 
 .bigFont{
