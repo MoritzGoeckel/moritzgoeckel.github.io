@@ -203,3 +203,9 @@ h1{
 	width: 50px;
 	height: 50px;
 }
+
+.skills_td .cert{
+    max-height: 150px;
+    display: block;
+    margin: auto;
+}
