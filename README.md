@@ -1,4 +1,4 @@
-# My portfolio website
+# My website
 To see it in action visit http://moritzgoeckel.com
 
 # Demo
