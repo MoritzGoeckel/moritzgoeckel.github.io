@@ -1,6 +1,6 @@
 body {
   font-family: 'Open Sans';
-  font-size: 14px;
+  font-size: 18px;
 }
 
 .container {
@@ -9,7 +9,7 @@ body {
   justify-content: center;
   align-items: center;
   gap: 4px;
-  height: 100vh;
+  height: 80vh;
 }
 
 .container img {
