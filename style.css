@@ -1,6 +1,29 @@
-body
-{
-    font-family: "Open Sans";
-    letter-spacing: -0.03em;
+body {
+  font-family: 'Open Sans';
+  font-size: 14px;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  height: 100vh;
+}
+
+.container img {
+  margin-right: 1em;
+}
+
+.inner {
+}
+
+.avatar-frame,
+.avatar-frame img {
+  width: 8em;
+  height: 8em;
+  -webkit-border-radius: 8em; /* Saf3+, Chrome */
+  border-radius: 8em; /* Opera 10.5, IE 9 */
 }
 
